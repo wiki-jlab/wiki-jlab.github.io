@@ -10,6 +10,7 @@ jobs:
     # Use the GitHub Actions cache to shorten build times and decrease load on servers
     - uses: actions/cache@v2
       with:
+        target_branch: 'gh-pages'
         path: vendor/bundle
         key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile') }}
         restore-keys: |
@@ -17,5 +18,6 @@ jobs:
     # Standard usage
     - uses: helaili/jekyll-action@v2
       with:
+        target_branch: 'gh-pages'
         pre_build_commands: gem update --system
         token: ${{ secrets.GITHUB_TOKEN }}
